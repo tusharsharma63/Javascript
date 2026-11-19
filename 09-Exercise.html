@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Exercise</title>
+  </head>
+  <body>
+    <!--EXERCIISE 1:-->
+    <button class="js-9a-button">9a</button>
+    <button class="js-9b-button">9b</button>
+
+    <!--EXERCIISE 2:-->
+    <button class="js-heads-button" 
+    onclick="document.querySelector('.js-p1')
+      .innerHTML = 'You chose: heads'">heads</button>
+    <button class="js-tails-button"
+    onclick="document.querySelector('.js-p1')
+      .innerHTML = 'You chose: tails'">tails</button>
+    <p class="js-p1"></p>
+
+    <!--EXERCISE 3:-->
+    <input placeholder="Name" class="name-search-input"
+    onkeydown="
+    nameSearchKeydown(event);
+    ">
+    <button onclick="
+    nameSearch();
+    ">Submit
+    </button>
+    <p class="js-p2"></p>
+
+    <!--EXERCISE 4:-->
+    <input class="name-search-input1" placeholder="Type something"
+    onkeyup="document.querySelector('.js-p3').innerHTML = document.querySelector('.name-search-input1').value">
+    <p class="js-p3"></p>
+
+    <script>
+      const buttonElement1 = document.querySelector('.js-9a-button');
+      console.log(buttonElement1);
+
+      const buttonElement2 = document.querySelector('.js-9b-button');
+      buttonElement2.innerHTML = '9b done!';
+      console.log(buttonElement2.innerHTML);
+
+      function nameSearch() {
+        document.querySelector('.js-p2')
+          .innerHTML = `Your name is: ${document.querySelector('.name-search-input').value}`;
+      }
+
+      function nameSearchKeydown(event) {
+        if (event.key === 'Enter') {
+          nameSearch();
+        }
+      }
+    </script>
+  </body>
+</html>

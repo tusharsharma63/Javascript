@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arrays and Loops Exercise</title>
+  </head>
+  <body>
+    <script>
+      // EXERCISE 1:
+      const nums = [10, 20, 30];
+      nums[2] = 99;
+      console.log(nums);
+
+      // EXERCISE 2:
+      function getLastValue(array) {
+        const length = array.length;
+        const lastValue = array[length - 1];
+        return lastValue;
+      }
+
+      console.log(getLastValue([1, 20, 22, 24, 5]));
+      console.log(getLastValue(['hi', 'hello', 'good']));
+      
+      // EXERCISE 3:
+      function arraySwap(array) {
+        const length = array.length;
+        const valueAtIndex0 = array[0];
+        array[0] = array[length - 1];
+        array[length - 1] = valueAtIndex0;
+        return array;
+      }
+
+      console.log(arraySwap([1, 20, 22, 24, 5]));
+      console.log(arraySwap(['hi', 'hello', 'good']));
+
+      // EXERCISE 4:
+      for (let i = 0; i >=0 && i < 11; i += 2) {
+        console.log(i);
+      }
+
+      // EXERCISE 5:
+      for (let i = 5; i >= 0; i--) {
+        console.log(i)
+      }
+
+      // EXERCISE 6:
+      function addOne(array) {
+        const newArray = [];
+
+        for (let i = 0; i < array.length; i++) {
+        let value = array[i];
+        value++;
+        newArray.push(value);
+      }
+      return newArray;
+      }
+
+      console.log(addOne([1, 2, 3]));
+      console.log(addOne([-2, -1, 0, 99]));
+
+      // EXERCISE 7:
+      function addNum(array, num) {
+        const newArray = [];
+
+        for(let i = 0; i < array.length; i++) {
+          let value = array[i];
+          value = value + num;
+          newArray.push(value);
+        }
+        return newArray;
+      }
+
+      console.log(addNum([1, 2, 3], 2));
+      console.log(addNum([1, 2, 3], 3));
+
+      // EXERCISE 8:
+      function addArrays(array1, array2) {
+        const newArray = [];
+
+        for (let i = 0; i < array1.length; i++) {
+          const value1 = array1[i];
+          const value2 = array2[i];
+          const value = value1 + value2;
+          newArray.push(value);
+        }
+        return newArray;
+      }
+
+      console.log(addArrays([1, 1, 2], [1, 1, 3]));
+      console.log(addArrays([1, 2, 3], [4, 5, 6]));
+
+      // EXERCISE 9:
+      function countPositive(nums) {
+        let positiveNums = 0;
+
+        for (let i = 0; i < nums.length; i++) {
+          const value = nums[i];
+          if (value > 0) {
+            positiveNums++;
+          }
+        }
+        return positiveNums;
+      }
+      
+      console.log(countPositive([1, -3, 5]));
+      console.log(countPositive([-2, 3, -5, 7, 10]));
+
+      // EXERCISE 10:
+      function minMax(nums) {
+        const obj = {
+            min: null,
+            max: null
+          };
+
+        for (let i = 0; i < nums.length; i++) {
+          const value = nums[i];
+          if (value < nums[i-1]) {
+            obj.min = value;
+          } else if (value > nums[i-1]) {
+            obj.max = value;
+          } else if (nums.length = 1) {
+            obj.min = value;
+            obj.max = value;
+          }
+        }
+        return obj;
+      }
+
+      console.log(minMax([1, -3, 5]));
+      console.log(minMax([-2, 3, -5, 7, 10]));
+      console.log(minMax([]));
+      console.log(minMax([3]));
+
+      // EXERCISE 11:
+      function countWords(words) {
+        const result = {};
+
+        for (let i = 0; i < words.length; i++) {
+          const word = words[i];
+          if (word in result) {   //result.hasOwnProperty(word)
+            result[word] += 1;
+          } else {
+            result[word] = 1;
+          }
+        }
+        return result;
+      }
+
+      console.log(countWords(['apple', 'grape', 'apple', 'grape']));
+
+      // EXERCISE 12:
+      const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+
+      function removeEgg() {
+        const sliceFoods = foods.slice();
+        const newFoods = [];
+        let a = 0;
+
+        for (let i = 0; i < sliceFoods.length; i++) {
+          const food = sliceFoods.reverse()[i];
+
+          if (food === 'egg') {
+            a++;
+            if (food === 'egg' && a <= 2) {
+              continue;
+            } else if (food === 'egg' && a > 2) {
+              newFoods.push(food);
+            }
+            
+          } else if (food !== 'egg') {
+            newFoods.push(food);
+          }
+        }
+        return newFoods.reverse();
+      }
+
+      console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+      console.log(foods);
+
+      // EXERCISE 13:
+      for (let i = 1; i <=20; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+          console.log('FizzBuzz');
+        } else if (i % 3 === 0) {
+          console.log('Fizz')
+        } else if (i % 5 === 0) {
+          console.log('Buzz');
+        } else {
+          console.log(i);
+        }
+      }
+    </script>
+  </body>
+</html>

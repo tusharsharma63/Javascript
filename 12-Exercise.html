@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Functions Exercise</title>
+  </head>
+  <body>
+    <button class="js-start-button"
+    onclick="startButton()">
+      Start
+    </button>
+
+    <button class="js-add-to-cart-button"
+    onclick="addToCartButton();">
+      Add to Cart
+    </button>
+    <p class="js-added-message"></p>
+
+    <script>
+      // EXERCISE 1:
+      const add = function() {
+        console.log(2 + 3);
+      }
+      add();
+      add();
+
+      // EXERCISE 2:
+      function runTwice(fun) {
+        fun();
+        fun();
+      }
+
+      runTwice(function() {
+        console.log('12b');
+      });
+
+      runTwice(add);
+
+      // EXERCISE 3:
+      const buttonElement = document.querySelector('.js-start-button');
+      
+      function startButton() {
+        if (buttonElement.innerText === 'Start') {
+          buttonElement.innerText = 'Loading...';
+          setTimeout(function() {
+            buttonElement.innerText = 'Finished!';
+          }, 1000);
+        } else {
+          buttonElement.innerText = 'Loading...';
+          setTimeout(function() {
+            buttonElement.innerText = 'Start';
+          }, 1000);
+        }
+      }
+
+      // EXERCISE 4:
+
+      function addToCartButton() {
+        const addedMessageElement = document.querySelector('.js-added-message');
+        let timeoutID;
+
+        if (addedMessageElement.innerHTML !== 'Added') {
+          addedMessageElement.innerHTML = 'Added';
+
+          timeoutID = setTimeout(function() {
+            addedMessageElement.innerHTML = '';
+          }, 2000);
+        } else {
+          clearTimeout(timeoutID);
+          setTimeout(function() {
+            addedMessageElement.innerHTML = '';
+          }, 2000);
+        }
+      }
+    </script>
+  </body>
+</html>

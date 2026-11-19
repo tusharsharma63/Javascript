@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise</title>
+    <style>
+      .js-toggle-button1,
+      .js-toggle-button2,
+      .js-toggle-button3 {
+        background-color: rgb(240, 240, 240);
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .is-toggled {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!--EXERCISE 1:-->
+    <button class="js-button">Test</button>
+
+    <!--EXERCISE 2:-->
+    <button class="js-toggle-button1"
+    onclick="
+    toggleButton(1);
+    toggleOnlyOneButton(2);
+    toggleOnlyOneButton(3);"
+    >
+      Gaming
+    </button>
+
+    <button class="js-toggle-button2"
+    onclick="
+    toggleButton(2);
+    toggleOnlyOneButton(1);
+    toggleOnlyOneButton(3);">
+      Music
+    </button>
+
+    <button class="js-toggle-button3"
+    onclick="
+    toggleButton(3);
+    toggleOnlyOneButton(1);
+    toggleOnlyOneButton(2);">
+      Tech
+    </button>
+
+    <script>
+      console.log(document.querySelector('.js-button').classList.contains('js-button'));
+
+      function toggleButton(n) {
+        const buttonElement = document.querySelector(`.js-toggle-button${n}`);
+
+        if (buttonElement.classList.contains('is-toggled')) {
+          buttonElement.classList.remove('is-toggled');
+        } else {
+          buttonElement.classList.add('is-toggled');
+        }
+      }
+
+      function toggleOnlyOneButton(n) {
+        const buttonElement = document.querySelector(`.js-toggle-button${n}`);
+
+        buttonElement.classList.remove('is-toggled');
+      }
+    </script>
+  </body>
+</html>

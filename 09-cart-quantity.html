@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <p>
+      Cart Quantity
+    </p>
+
+    <button onclick="
+    quantity();"
+    style="cursor: pointer;">
+      Show Quantity
+    </button>
+
+    <button onclick="
+    updateCartQuantity(1);"
+    style="cursor: pointer;">
+      Add to Cart
+    </button>
+
+    <button onclick="
+    updateCartQuantity(2);"
+    style="cursor: pointer;">
+      +2
+    </button>
+
+    <button onclick="
+    updateCartQuantity(3);"
+    style="cursor: pointer;">
+      +3
+    </button>
+
+    <button onclick="
+    updateCartQuantity(4);"
+    style="cursor: pointer;">
+      +4
+    </button>
+
+    <button onclick="
+    updateCartQuantity(5);"
+    style="cursor: pointer;">
+      +5
+    </button>
+
+    <button onclick="
+    updateCartQuantity(-1);"
+    style="cursor: pointer;">
+      Remove from cart
+    </button>
+
+    <button onclick="
+    updateCartQuantity(-2);"
+    style="cursor: pointer;">
+      -2
+    </button>
+
+    <button onclick="
+    updateCartQuantity(-3);"
+    style="cursor: pointer;">
+      -3
+    </button>
+
+    <button onclick="
+    cartQuantity = 0;
+    localStorage.removeItem('cartQuantity');
+    alert('Cart has rest.');
+    quantity();"
+    style="cursor: pointer;">
+      Reset Cart
+    </button>
+
+    <p class="js-p"></p>
+
+    <script>
+      let cartQuantity = JSON.parse(localStorage.getItem('cartQuantity')) || 0;
+
+      quantity();
+
+      function updateCartQuantity(n) {
+        if (cartQuantity + n > 10) {
+          alert('The cart is full.');
+          return cartQuantity;
+        } else if (cartQuantity + n < 0) {
+          alert('Not enough items in the cart.');
+          return cartQuantity;
+        } else {
+          cartQuantity += n;
+          localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity));
+          document.querySelector('.js-p').innerHTML = `Cart Quantity: ${cartQuantity}`;
+          return cartQuantity;
+        }
+      }
+
+      function quantity() {
+        document.querySelector('.js-p')
+          .innerHTML = `Cart Quantity: ${cartQuantity}`;
+      }
+    </script>
+  </body>
+</html>
